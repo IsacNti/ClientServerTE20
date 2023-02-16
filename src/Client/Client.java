@@ -1,6 +1,8 @@
 package Client;
 
-import com.sun.corba.se.pept.transport.ListenerThread;
+//import com.sun.corba.se.pept.transport.Client.ListenerThread;
+
+//import com.sun.corba.se.pept.transport.Client.ListenerThread;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +17,10 @@ public class Client {
     PrintWriter out;
     BufferedReader in;
 
+    private String output;
+    private String ip;
+    private String input;
+
     public Client(String ip, int port) {
         try {
             socket = new Socket(ip,port);
@@ -23,6 +29,10 @@ public class Client {
             e.printStackTrace();
         }
         System.out.println("Connection ready...");
+    }
+
+    public Client() {
+
     }
 
     private void getStreams() {
@@ -62,6 +72,18 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setOutput(String output) {
+
+    }
+
+    public void setIp(String ip) {
+
+    }
+
+    public String getInput() {
+        return null;
     }
 }
 

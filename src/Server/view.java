@@ -3,9 +3,21 @@ package Server;
 import javax.swing.*;
 
 public class view {
-    private JTextArea input;
     private JPanel panel;
-    private JTextField output;
     private JButton skicka;
     private JButton quit;
+    private JEditorPane input;
+    private JFormattedTextField output;
+
+    public view(){
+    }
+    public JPanel getPanel(){
+        return panel;
+    }
+    public String getinput(){
+        return input.getText();
+    }
+
+
+
 }

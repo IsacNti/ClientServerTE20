@@ -1,7 +1,8 @@
+package Server;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 
 public class ListenerThread implements Runnable{
     private BufferedReader in;
