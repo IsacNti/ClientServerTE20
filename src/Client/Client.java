@@ -21,7 +21,11 @@ public class Client {
     private String ip;
     private String input;
 
-    public Client(String ip, int port) {
+    public Client() {
+
+    }
+    
+    public void Connect(String ip, int port) {
         try {
             socket = new Socket(ip,port);
         } catch (IOException e) {
@@ -31,9 +35,8 @@ public class Client {
         System.out.println("Connection ready...");
     }
 
-    public Client() {
+  
 
-    }
 
     private void getStreams() {
         try {
@@ -55,8 +58,8 @@ public class Client {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Client me = new Client("10.70.45.159", 1234);
+  /*  public static void main(String[] args) throws InterruptedException {
+        Client me = new Client(Ip, 1234);
         me.getStreams();
         ListenerThread l = new ListenerThread(me.in, System.out);
         Thread listener = new Thread(l);
@@ -65,8 +68,8 @@ public class Client {
         listener.join();
         me.shutDown();
     }
-
-    private void shutDown() {
+*/
+    public void shutDown() {
         try {
             socket.close();
         } catch (IOException e) {
@@ -75,11 +78,27 @@ public class Client {
     }
 
     public void setOutput(String output) {
+        Scanner tgb = new Scanner(System.in);
+        System.out.println("chatting...");
+        String msg = "";
+        while (!msg.equals("ytytfuygikg")) {
+            msg = tgb.nextLine();
+            out.println("CLIENT: " + msg);
 
+        }
     }
 
-    public void setIp(String ip) {
+    public void setIp(String ip) throws InterruptedException {
+        System.out.println(ip);
+        getStreams();
+        ListenerThread l = new ListenerThread(in, System.out);
+        Thread listener = new Thread(l);
+        listener.start();
+        listener.join();
+    }
 
+    public void setquit(String ip) {
+        shutDown();
     }
 
     public String getInput() {

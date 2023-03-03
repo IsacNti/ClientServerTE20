@@ -15,6 +15,7 @@
           </grid>
         </constraints>
         <properties>
+          <editable value="false"/>
           <text value="Skriv ip nedanför"/>
         </properties>
       </component>
@@ -49,6 +50,8 @@
           </grid>
         </constraints>
         <properties>
+          <editable value="false"/>
+          <enabled value="true"/>
           <text value="kommande"/>
         </properties>
       </component>

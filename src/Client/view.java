@@ -19,7 +19,7 @@ public class view {
         return panel;
     }
     public String getOutput(){
-        return input.getText();
+        return output.getText();
     }
     public String getIp(){
         return ip.getText();
@@ -44,6 +44,5 @@ public class view {
     public void setAnslutListener(ActionListener anslutListener) {
         anslut.addActionListener(anslutListener);
     }
-
 
 }

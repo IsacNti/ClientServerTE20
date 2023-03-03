@@ -8,7 +8,7 @@ import java.io.IOException;
 public class controler extends JFrame {
     Client Client;
     view view;
-
+    public String ip;
     public controler(Client m, view v){
         this.Client = m;
         this.view = v;
@@ -19,6 +19,7 @@ public class controler extends JFrame {
         view.setSkickaListener(new skickaListener());
         view.setQuitListener(new quitListener());
         view.setAnslutListener(new anslutListener());
+        Client.Connect(ip,1234);
     }
     private class skickaListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -27,15 +28,27 @@ public class controler extends JFrame {
     }
     private class quitListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            Client.setIp(view.getIp());
+            Client.setquit(view.getIp());
         }
     }
     private class anslutListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            try {
+                Client.setIp(view.getIp());
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    private class inputListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
             view.setInput(Client.getInput());
         }
     }
-    public static void main(String[] args) throws IOException {
+
+
+    public static void main(String[] args) throws IOException, InterruptedException {
         Client m = new Client();
         view v = new view();
         controler thisIsTheProgram = new controler(m,v);
